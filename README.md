@@ -15,10 +15,10 @@
 - ai-hub에서 제공되는 한국어 글자체 이미지(인쇄체 데이터)
 
 ### 데이터 예시 (data example)
-- 음절 데이터 (syllable data) 
+- 음절 데이터 (syllable data) \
 ![00000029](https://user-images.githubusercontent.com/118142229/228454358-8e655174-2923-413a-93e0-20c4e833a364.png)
 ![00000414](https://user-images.githubusercontent.com/118142229/228454722-0629abd7-3080-401b-a714-53095e3910ba.png)
 
-- 단어 데이터 (word data)
+- 단어 데이터 (word data) \
 ![02234400](https://user-images.githubusercontent.com/118142229/228454940-5e1629a8-fa83-4e13-9402-11c079545bbf.png)
 ![02396110](https://user-images.githubusercontent.com/118142229/228455044-811412bd-55ac-406f-99f4-2576eaf429d8.png)
