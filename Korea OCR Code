@@ -1,0 +1,143 @@
+from csv import reader
+import os
+from tqdm import tqdm
+from PIL import Image
+from psutil import virtual_memory
+import numpy as np
+import tensorflow as tf
+from gc import collect
+from sklearn.model_selection import train_test_split
+import pandas as pd
+from tensorflow.keras.models import load_model
+import cv2
+from ultralytics import YOLO
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+# 초성/중성/종성을 결합하는 함수
+def combine_consonants(start, middle, final):
+
+    chosung = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', '']
+    jungsung = ['ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ', '']
+    jongsung = ['ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', '']
+    
+    # 한글 유니코드 계산 (받침이 없는 경우)
+    no_final = 44032 + (chosung.index(start) * 21 + jungsung.index(middle)) * 28
+    if final != '':
+        # 받침이 있다면 종성 부분을 더해주기
+        yes_final = no_final + jongsung.index(final) + 1
+        # 받침이 있다면 계산된 버전을 도출
+        return chr(yes_final)
+    # 받침이 없는 경우에는 그대로 도출
+    else:
+        return chr(no_final)
+        
+
+def draw_Hangul_consonants(path_to_image, path_to_model):
+
+    # 초성, 중성, 종성 세팅
+    chosung = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', '']
+    jungsung = ['ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ', '']
+    jongsung = ['ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', '']
+
+    # 모델 불러오기
+    model = tf.keras.models.load_model(path_to_model)
+   
+    # 이미지 열기
+    image = Image.open(path_to_image)
+    image = image.convert('RGB')
+
+    # 이미지 재조정
+    image = image.resize((90, 90))
+
+    # 넘파이 배열로 이미지 변환
+    image_array = np.asarray(image)
+    
+    # 픽셀값 표준화
+    image_array = [image_array.astype('float32') / 255.0]
+
+
+    # 리스트를 다시 넘파이 배열로 변환 : 이미지만 변환해서 도출
+    X = np.array(image_array)
+    
+    # 모델 예측
+    prediction = model.predict(X)
+
+    # 정답이 모여있는 리스트 만들기
+    answers = []
+
+    max_index_1 = np.argmax(prediction[0][0])
+    max_index_2 = np.argmax(prediction[1][0])
+    max_index_3 = np.argmax(prediction[2][0])
+    
+    # 하나로 묶기 / 초성, 중성, 종성값으로 변환
+    temp = [chosung[max_index_1], jungsung[max_index_2], jongsung[max_index_3]]
+    
+    # 답안지에 넣기
+    answers.append(temp)
+
+    return combine_consonants(*answers[0])
+    
+# YOLOv8x, Resnet 모델 불러오기
+model_YOLO = YOLO('YOLOv8x_bestt')
+model_resnet_path = 'best_ResNet_consonants_model'
+
+# 영상 파일 경로 설정
+video_path = "*.mp4"
+
+# 영상 불러오기
+video = cv2.VideoCapture(video_path)
+
+# 영상 프레임 수와 FPS 가져오기
+frame_count = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
+fps = int(video.get(cv2.CAP_PROP_FPS))
+
+# FPS가 0인 경우 1로 설정
+if fps == 0:
+    fps = 1
+
+# 1초 단위로 이미지 추출하기
+for i in range(0, frame_count, fps):
+    video.set(cv2.CAP_PROP_POS_FRAMES, i)
+    ret, frame = video.read()
+    if ret:
+        # YOLO 모델로 객체 탐지
+        results = model_YOLO(frame, stream=True)
+
+        # 결과 좌표구하기
+        for j, r in enumerate(results):
+            boxes = r.boxes.xyxy
+            frame_with_boxes = frame.copy()
+            
+            han_ = []
+
+            # boxes가 비어 있는 경우 루프를 건너뛰기     
+            if len(boxes) == 0:
+                continue
+            
+            boxes= sorted(boxes, key=lambda x:x[0])
+            
+            for box in boxes:
+                x1, y1, x2, y2 = [int(b) for b in box]
+                
+                cropped_image = frame_with_boxes[y1:y2, x1:x2]
+                
+                # OpenCV로 이미지 선명도 높이기
+                alpha = 1.5  # 대비를 조절할 배율
+                beta = 30  # 밝기를 조절할 값
+                adjusted = cv2.convertScaleAbs(cropped_image, alpha=alpha, beta=beta)
+
+                kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
+                emphasized = cv2.filter2D(adjusted, -1, kernel)
+                
+                alpha1 = 1.0
+                dst1 = np.clip((1+alpha1) * emphasized - 128 * alpha1, 0, 255).astype(np.uint8)
+                
+                dst = cv2.normalize(dst1, None, 0, 255, cv2.NORM_MINMAX)
+               
+                cv2.imwrite('A_test.jpg', dst)
+                han_.append(draw_Hangul_consonants('A_test.jpg', model_resnet_path))
+
+            print(*han_)
+    
+    
