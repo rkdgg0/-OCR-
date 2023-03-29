@@ -40,6 +40,7 @@
 
 #### 2) YOLOv8 모델 선정
 - Average Precision의 평균값과 연산량의 성능이 가장 높은 YOLOv8x모델을 선정
+
 ![화면 캡처 2023-03-17 023308](https://user-images.githubusercontent.com/118142229/228459190-cb1c3b4c-9cc2-4998-a6a7-fab5806a903e.png)
 
 
