@@ -8,7 +8,7 @@
 이를 해결하기 위해 한글의 자모를 인식하는 방식으로 한글 OCR 인식률을 향상시키고자 합니다. \
 
 ## Updates
-2023-03-29 프로젝트 소개 \ 
+2023-03-29 프로젝트 소개
 
 # Project
 ## 1. 데이터 소개 (Data)
@@ -25,7 +25,7 @@
 ![02396110](https://user-images.githubusercontent.com/118142229/228455044-811412bd-55ac-406f-99f4-2576eaf429d8.png) 
 
 ## 2. 한글(객체) 감지 모델
-- 학습 데이터(총 1400개)
+- 학습 데이터 (1,400개)
 
 ![화면 캡처 2023-03-29 165458](https://user-images.githubusercontent.com/118142229/228465720-117f5776-092c-4539-b090-e664e1d7956e.png)
 
@@ -60,7 +60,7 @@
 ![화면 캡처 2023-03-29 170052](https://user-images.githubusercontent.com/118142229/228469440-41edd926-95d6-43b4-8ea7-e5babbf848f5.png)
 
 #### 3) ResNet 모델 학습
-- 학습 데이터
+- 학습 데이터 (50,000개)
 
 ![화면 캡처 2023-03-29 171351](https://user-images.githubusercontent.com/118142229/228470491-81ebc6af-b29e-408c-8562-cdd85d0b9c82.png)
 
