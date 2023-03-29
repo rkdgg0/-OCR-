@@ -47,7 +47,8 @@
 ![화면 캡처 2023-03-29 164028](https://user-images.githubusercontent.com/118142229/228461650-f43dbfcc-2431-4183-b38b-7d4ff43a4285.png)
 
 #### $) YOLOv8x 감지 결과
-![화면 캡처 2023-03-29 164354](https://user-images.githubusercontent.com/118142229/228463269-8938394b-a3a5-495e-a8f1-7d27dd248657.png)
+![화면 캡처 2023-03-29 164354](https://user-images.githubusercontent.com/118142229/228463517-8870b1cb-5558-4eb6-9741-974ab4380754.png)
+
 
 
 
