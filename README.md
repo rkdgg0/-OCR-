@@ -60,12 +60,12 @@
 ![화면 캡처 2023-03-29 170052](https://user-images.githubusercontent.com/118142229/228469440-41edd926-95d6-43b4-8ea7-e5babbf848f5.png)
 
 #### 3) ResNet 모델 학습
-- 데이터
+- 학습 데이터
 
 ![화면 캡처 2023-03-29 171351](https://user-images.githubusercontent.com/118142229/228470491-81ebc6af-b29e-408c-8562-cdd85d0b9c82.png)
 
 - 모델 훈련
-- 
+
 ![화면 캡처 2023-03-29 171414](https://user-images.githubusercontent.com/118142229/228470680-9874da44-c996-40e8-9164-c69988511206.png)
 
 ## 4. 한글 OCR 결과
