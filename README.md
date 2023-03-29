@@ -43,6 +43,13 @@
 
 ![화면 캡처 2023-03-17 023308](https://user-images.githubusercontent.com/118142229/228459900-cf07fc19-29e8-475f-b4a0-b3fdc0389268.png)
 
+#### 3) YOLOv8x 학습 결과 그래프
+![화면 캡처 2023-03-29 164028](https://user-images.githubusercontent.com/118142229/228461650-f43dbfcc-2431-4183-b38b-7d4ff43a4285.png)
+
+#### $) YOLOv8x 감지 결과
+![화면 캡처 2023-03-29 164354](https://user-images.githubusercontent.com/118142229/228463269-8938394b-a3a5-495e-a8f1-7d27dd248657.png)
+
+
 
 
 
