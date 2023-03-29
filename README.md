@@ -34,7 +34,8 @@
   - 빈 화면 (한글이 없는 이미지) : 약 50개
 #### 1) 객체 감지 모델 선정
 - YOLOv5, YOLOv8를 같은 데이터로 학습 후 이미지에서 한글(음절)을 예측결과 확인
-![화면 캡처 2023-03-29 162709](https://user-images.githubusercontent.com/118142229/228458679-3cc5eea9-7d8b-46c7-b88f-32905e94a4e6.png)
+
+![화면 캡처 2023-03-29 162709](https://user-images.githubusercontent.com/118142229/228458871-727f694e-8cfb-4831-a870-c42fa2d38146.png)
 
 
 
