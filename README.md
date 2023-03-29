@@ -56,6 +56,7 @@
 
 #### 2) 이미지 라벨링
 
+![제목 없는 프레젠테이션 (3)](https://user-images.githubusercontent.com/118142229/228467914-7e92c504-c2f0-4dd5-9c9b-958fe841133b.jpg)
 
 
 
