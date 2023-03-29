@@ -11,5 +11,6 @@
 2023-03-29 프로젝트 소개 \ 
 
 ## Data
-![big_log_temp](https://user-images.githubusercontent.com/118142229/228452680-f556cc50-4f03-4200-8b31-95fb9e57be38.png)
+![big_log_temp](https://user-images.githubusercontent.com/118142229/228453160-c8d6e7fc-fae0-44a9-b5dd-7bfa23ed9045.png){: width="100" height="30"}
+
 - ai-hub에서 제공되는 한국어 글자체 이미지(인쇄체 데이터)
