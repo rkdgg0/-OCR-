@@ -32,9 +32,11 @@
   - 조합(음절+단어) : 약 210개
   - 빈 화면 (한글이 없는 이미지) : 약 50개
 #### 1) 객체 감지 모델 선정
-- YOLOv5, YOLOv8를 같은 데이터로 학습 후 이미지에서 한글(음절)을 예측결과 확인 / 
-![화면 캡처 2023-03-29 162709](https://user-images.githubusercontent.com/118142229/228458871-727f694e-8cfb-4831-a870-c42fa2d38146.png)
+- YOLOv5, YOLOv8를 같은 데이터로 학습 후 이미지에서 한글(음절)을 예측결과 확인 
 - YOLOv8로 선정
+
+![화면 캡처 2023-03-29 162709](https://user-images.githubusercontent.com/118142229/228458871-727f694e-8cfb-4831-a870-c42fa2d38146.png)
+
 
 #### 2) YOLOv8 모델 선정
 - Average Precision의 평균값과 연산량의 성능이 가장 높은 YOLOv8x모델을 선정
