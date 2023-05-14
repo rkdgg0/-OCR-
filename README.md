@@ -9,7 +9,8 @@
 
 ## Updates
 2023-03-29 프로젝트 등록. \
-2023-05-14 프로젝트 소개 수정
+2023-03-30 프로젝트 소개 수정. \
+2023-05-14 프로젝트 이미지 수정.
 
 # Project
 ## 1. 데이터 소개 (Data)
@@ -58,17 +59,17 @@
 #### 2) 이미지 라벨링
 
 ![화면 캡처 2023-03-29 170026](https://user-images.githubusercontent.com/118142229/228469412-c9f64b0f-27c5-4c98-8f67-02993155778f.png)
-![화면 캡처 2023-03-29 170052](https://user-images.githubusercontent.com/118142229/228469440-41edd926-95d6-43b4-8ea7-e5babbf848f5.png)
+![화면 캡처 2023-05-14 140510](https://github.com/rkdgg0/Korean-OCR/assets/118142229/c43bdf67-de95-47ba-ba28-b80e7567a281)
 
 #### 3) ResNet 모델 학습
-- 학습 데이터 (50,000개)
+- 학습 데이터 (100,000개)
 
-![화면 캡처 2023-03-29 171351](https://user-images.githubusercontent.com/118142229/228470491-81ebc6af-b29e-408c-8562-cdd85d0b9c82.png)
+![화면 캡처 2023-05-14 140751](https://github.com/rkdgg0/Korean-OCR/assets/118142229/9666f8dc-5b28-4bfa-9e88-17c5e38bb6eb)
 
 - 모델 훈련
 
-![화면 캡처 2023-03-29 171414](https://user-images.githubusercontent.com/118142229/228470680-9874da44-c996-40e8-9164-c69988511206.png)
+![화면 캡처 2023-05-14 141311](https://github.com/rkdgg0/Korean-OCR/assets/118142229/562b913c-4a7a-47f1-9505-ce1a066a18a0)
 
 ## 4. 한글 OCR 결과
 
-![화면 캡처 2023-03-29 171325](https://user-images.githubusercontent.com/118142229/228470762-b5e7cdc6-57b9-4437-9406-339f1f7bcb12.png)
+![화면 캡처 2023-05-14 142603](https://github.com/rkdgg0/Korean-OCR/assets/118142229/8070d119-f1b1-4ac1-8bb9-2abcb6f23bf2)
